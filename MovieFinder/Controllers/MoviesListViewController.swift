@@ -25,9 +25,9 @@ final class MoviesListViewController: UIViewController, UISearchBarDelegate, Fav
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "detailVCSegue", let detailViewController = segue.destination as? DetailViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
         let movie = dataProvider.dataManager.movies[indexPath.row]
-        detailViewController.movieName = movie.name
-        detailViewController.movieDescription = movie.description
-        guard let imageURLString = movie.imageURLString else { return }
+        detailViewController.movieName = movie.title
+        detailViewController.movieDescription = movie.overview
+        guard let imageURLString = movie.posterPath else { return }
         detailViewController.movieImageURLString = "https://image.tmdb.org/t/p/w500\(imageURLString)"
     }
     

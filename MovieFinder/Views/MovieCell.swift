@@ -21,9 +21,9 @@ final class MovieCell: UITableViewCell, CellConfigurator {
     }
     
     func configure(with model: Movie) {
-        guard let imageURLString = model.imageURLString else { return }
-        movieNameLabel.text = model.name
-        movieDescriptionLabel.text = model.description
+        guard let imageURLString = model.posterPath else { return }
+        movieNameLabel.text = model.title
+        movieDescriptionLabel.text = model.overview
         movieImageView.withImageDownloaded(from: "https://image.tmdb.org/t/p/w500\(imageURLString)")
     }
 }
